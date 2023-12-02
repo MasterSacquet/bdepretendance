@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande de Crêpes</title>
+    <link rel="stylesheet" href="stylesCrepe.css">
+</head>
+<body>
+    <form id="crepeOrderForm">
+        <label for="firstName">Prénom:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label for="lastName">Nom:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <label for="quantity">Nombre de crêpes:</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+
+        <label for="location">Lieu:</label>
+        <input type="text" id="location" name="location" required><br>
+
+        <!-- Le numéro de téléphone est prédéfini et non modifiable par l'utilisateur -->
+        <input type="hidden" id="phoneNumber" name="phoneNumber" value="+33785816843">
+
+        <button type="button" onclick="sendWhatsAppMessage()">Commander des Crêpes</button>
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var quantity = document.getElementById("quantity").value;
+            var location = document.getElementById("location").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+
+            // Construire le message
+            var message = `Gros enculé ramène moi ${quantity} crêpes immédiatement ici : ${location} \nCordialement,\n${firstName} ${lastName}.`;
+
+            // Construire le lien WhatsApp avec le message
+            var whatsappUrl = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+
+            // Ouvrir WhatsApp
+            window.location.href = whatsappUrl;
+        }
+    </script>
+</body>
+</html>
