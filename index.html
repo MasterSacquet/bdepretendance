@@ -6,14 +6,27 @@
     <title>Commande de Plats</title>
     <link rel="stylesheet" href="stylesIndex.css">
     
+    <script>
+        function demanderCode(pageWeb) {
+            // Demander à l'utilisateur d'entrer un code
+            var code = prompt("Veuillez entrer le code :");
+
+            // Vérifier si le code est correct
+            if (code === "486217935") {
+                window.location.href = pageWeb; // Rediriger vers la page web associée
+            } else {
+                alert("Code incorrect. Veuillez réessayer.");
+            }
+        }
+    </script>
 </head>
 <body>
 
     <h1>Choisissez une commande :</h1>
 
     <button onclick="window.location.href='commande_crepes.html'">Commande Crêpes</button>
-    <button onclick="window.location.href='commande_ails_et_fines_herbes.html'">Commande Ails et Fines Herbes</button>
-    <button onclick="window.location.href='commande_enlevement.html'">Commande Enlèvement</button>
+    <button onclick="demanderCode('commande_ails_et_fines_herbes.html')">Commande Ails et Fines Herbes</button>
+    <button onclick="demanderCode('commande_enlevement.html')">Commande Enlèvement</button>
 
 </body>
 </html>
