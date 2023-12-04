@@ -20,6 +20,14 @@
         <label for="location">Lieu:</label>
         <input type="text" id="location" name="location" required><br>
 
+        <label for="topping">Choix de garniture:</label>
+        <select id="topping" name="topping" required>
+            <option value="sucre">Sucre</option>
+            <option value="nutella">Nutella</option>
+            <option value="confiture">Confiture de fraise</option>
+        </select><br>
+
+
         <!-- Le numéro de téléphone est prédéfini et non modifiable par l'utilisateur -->
         <input type="hidden" id="phoneNumber" name="phoneNumber" value="+33695014395">
 
@@ -32,10 +40,11 @@
             var lastName = document.getElementById("lastName").value;
             var quantity = document.getElementById("quantity").value;
             var location = document.getElementById("location").value;
+            var topping = document.getElementById("topping").value;
             var phoneNumber = document.getElementById("phoneNumber").value;
 
             // Construire le message
-            var message = `Gros enculé ramène moi ${quantity} crêpes immédiatement ici : ${location} \nCordialement,\n${firstName} ${lastName}.`;
+            var message = `Gros enculé ramène moi ${quantity} crêpes avec ${topping} immédiatement ici : ${location} \nCordialement,\n${firstName} ${lastName}.`;
 
             // Construire le lien WhatsApp avec le message
             var whatsappUrl = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
