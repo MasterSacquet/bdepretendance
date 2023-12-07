@@ -45,7 +45,7 @@
             var phoneNumber = document.getElementById("phoneNumber").value;
 
             // Construire le message
-            var message = `Eh ma belle ramène moi ${quantity} crêpes avec ${topping} immédiatement ici : ${location} \nCordialement,\n${firstName} ${lastName}.`;
+            var message = `Eh ma belle ramène moi ${quantity} crêpes avec ${topping} par ici : ${location} \Merci <3,\n${firstName} ${lastName}.`;
 
             // Construire le lien WhatsApp avec le message
             var whatsappUrl = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
